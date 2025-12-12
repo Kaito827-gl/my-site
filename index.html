@@ -27,7 +27,7 @@
         alt="広がる空と海の風景">
       <div class="hero__overlay"></div>
       <div class="hero__content">
-        <h1>次の冒険を見つけよう</h1>
+        <h1 data-typing-text="次の冒険を見つけよう">次の冒険を見つけよう</h1>
       </div>
     </section>
 
@@ -61,6 +61,28 @@
 
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
+
+      const heroHeading = document.querySelector('.hero__content h1');
+      if (heroHeading) {
+        const text = (heroHeading.dataset.typingText || heroHeading.textContent || '').trim();
+        heroHeading.textContent = '';
+        heroHeading.classList.add('typing');
+        let index = 0;
+
+        const typeNext = () => {
+          if (index < text.length) {
+            heroHeading.textContent += text[index++];
+            const delay = 60 + Math.random() * 80;
+            window.setTimeout(typeNext, delay);
+          } else {
+            heroHeading.classList.add('typing--done');
+          }
+        };
+
+        if (text) {
+          typeNext();
+        }
+      }
     </script>
   </body>
 </html>

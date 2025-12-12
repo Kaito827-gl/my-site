@@ -131,6 +131,33 @@ a {
   margin: 0;
 }
 
+.hero__content h1.typing {
+  min-height: 1.2em;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+}
+.hero__content h1.typing::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: #fff;
+  animation: typing-caret 0.9s steps(1) infinite;
+}
+.hero__content h1.typing.typing--done::after {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes typing-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
 .main {
   padding: 60px 24px;
   max-width: 1200px;
