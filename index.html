@@ -1,13 +1,66 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>私のWebページ</title>
-</head>
-<body>
-  <main>
-    <h1>自分のWebサイトへようこそ</h1>
-    <p>このサイトはGitHub Pagesでホストされています。シンプルな作りです。</p>
-  </main>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>旅のインスピレーション</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">本文へスキップ</a>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="グローバルナビゲーション">
+        <a class="nav__logo" href="#">TRAVEL</a>
+        <ul class="nav__links">
+          <li><a class="nav__link" href="#destinations">目的地</a></li>
+          <li><a class="nav__link" href="#features">特集記事</a></li>
+          <li><a class="nav__link nav__link--emphasis" href="#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero" aria-label="ヒーロー">
+      <img
+        class="hero__img"
+        src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2000&q=80"
+        alt="広がる空と海の風景">
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <h1>次の冒険を見つけよう</h1>
+      </div>
+    </section>
+
+    <main id="main" class="main">
+      <section id="destinations" class="section">
+        <div class="section__inner">
+          <p class="eyebrow">目的地</p>
+          <h2>世界の美しい場所をピックアップ</h2>
+          <p>都会の喧騒を離れ、自然や文化に触れる旅先だけを厳選してご紹介。</p>
+        </div>
+      </section>
+      <section id="features" class="section section--alt">
+        <div class="section__inner">
+          <p class="eyebrow">特集記事</p>
+          <h2>シーズンごとのおすすめと旅のヒント</h2>
+          <p>短期・長期のどちらの滞在にもフィットするプランニングノウハウを掲載。</p>
+        </div>
+      </section>
+      <section id="contact" class="section">
+        <div class="section__inner">
+          <p class="eyebrow">お問い合わせ</p>
+          <h2>掲載依頼・取材・ご相談</h2>
+          <p>未来の旅を形にするお手伝いをいたします。お気軽にご連絡ください。</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__text">© <span id="year"></span> TRAVEL. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
