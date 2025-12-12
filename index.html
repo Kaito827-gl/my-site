@@ -84,6 +84,32 @@
           typeNext();
         }
       }
+
+      const hero = document.querySelector('.hero');
+      const heroImg = document.querySelector('.hero__img');
+      if (hero && heroImg) {
+        let latestScrollY = window.scrollY;
+        let ticking = false;
+        const maxShift = 130;
+        const speed = 0.13;
+
+        const updateParallax = () => {
+          const shift = Math.min(latestScrollY * speed, maxShift);
+          heroImg.style.transform = `translate3d(0, ${shift}px, 0) scale(1.08)`;
+          ticking = false;
+        };
+
+        const onScroll = () => {
+          latestScrollY = window.scrollY;
+          if (!ticking) {
+            window.requestAnimationFrame(updateParallax);
+            ticking = true;
+          }
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        updateParallax();
+      }
     </script>
   </body>
 </html>
